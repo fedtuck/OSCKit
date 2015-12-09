@@ -18,4 +18,5 @@
 - (void)listen:(NSInteger)port;
 - (void)stop;
 - (BOOL)isConnected;
+- (BOOL)isClosed;
 @end

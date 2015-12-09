@@ -42,6 +42,10 @@
     return [self.socket isConnected];
 }
 
+- (BOOL)isClosed {
+    return [self.socket isClosed];
+}
+
 - (void)stop {
   [self.socket close];
 }
