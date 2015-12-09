@@ -38,6 +38,10 @@
   }
 }
 
+- (BOOL)isConnected {
+    return [self.socket isConnected];
+}
+
 - (void)stop {
   [self.socket close];
 }
