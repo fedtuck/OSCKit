@@ -6,7 +6,9 @@
 @protocol OSCServerDelegate <NSObject>
 
 - (void)handleMessage:(OSCMessage*)message;
-
+- (void)socketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error;
+- (void)socket:(GCDAsyncUdpSocket *)sock didConnectToAddress:(NSData *)address;
+- (void)socket:(GCDAsyncUdpSocket *)sock didNotConnect:(NSError *)error;
 @end
 
 @interface OSCServer : NSObject <GCDAsyncUdpSocketDelegate>

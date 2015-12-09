@@ -55,7 +55,17 @@
   [OSCProtocol unpackMessages:data withCallback:^(OSCMessage* message){
     [self.delegate handleMessage:message];
   }];
-;
 }
 
+-(void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error {
+    [self.delegate socketDidClose:sock withError:error];
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didConnectToAddress:(NSData *)address {
+    [self.delegate socket:sock didConnectToAddress:address];
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotConnect:(NSError *)error {
+    [self.delegate socket:sock didNotConnect:error];
+}
 @end
